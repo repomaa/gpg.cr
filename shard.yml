@@ -1,0 +1,13 @@
+name: gpg
+version: 0.1.0
+
+authors:
+  - Joakim Reinert <mail@jreinert.com>
+
+dependencies:
+  spec2:
+    github: waterlink/spec2.cr
+
+crystal: 0.20.3
+
+license: MIT
