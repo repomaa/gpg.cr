@@ -1,8 +1,11 @@
 language: crystal
 addons:
   apt:
+    sources:
+      - zesty
     packages:
       - gnupg
+      - libgpgme11-dev
 
 env:
   POPULATE_KEYRING: 1
