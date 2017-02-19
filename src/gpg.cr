@@ -4,7 +4,9 @@ require "./gpg/*"
 class GPG
   @handle : LibGPG::Context
 
-  LibGPG.check_version("1.7.0")
+  if LibGPG.check_version("1.6.0").null?
+    raise "GPGME version >= 1.6.0 is required"
+  end
 
   def initialize
     gpg_error = LibGPG.new(out handle)
