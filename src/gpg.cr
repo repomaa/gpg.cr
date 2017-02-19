@@ -51,4 +51,8 @@ class GPG
   def signers
     Signers.new(@handle)
   end
+
+  def pinentry_mode=(mode)
+    LibGPG.set_pinentry_mode(@handle, mode)
+  end
 end

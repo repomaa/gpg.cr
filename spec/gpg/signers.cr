@@ -2,7 +2,11 @@ require "../spec_helper"
 
 describe GPG::Signers do
   subject(:signers) { gpg.signers }
-  let(:gpg) { GPG.new }
+
+  let(:gpg) do
+    GPG.new.tap { |gpg| gpg.pinentry_mode = LibGPG::PinentryMode::Loopback }
+  end
+
   let(:secret_key) { gpg.list_keys(secret_only: true).first }
 
   describe "#size" do

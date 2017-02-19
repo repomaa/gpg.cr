@@ -12,6 +12,14 @@ lib LibGPG
 
   ERROR_CODE_MASK = ErrorCode::CODE_DIM - 1
 
+  enum PinentryMode
+    Default
+    Ask
+    Cancel
+    Error
+    Loopback 
+  end
+
   enum PubkeyAlgo
     RSA = 1
     RSA_E = 2
@@ -225,4 +233,5 @@ lib LibGPG
   fun signers_enum = gpgme_signers_enum(context : Context, index : Int32) : Key*
   fun signers_add = gpgme_signers_add(context : Context, key : Key*) : Error
   fun signers_clear = gpgme_signers_clear(context : Context)
+  fun set_pinentry_mode = gpgme_set_pinentry_mode(context : Context, mode : PinentryMode) : Error
 end

@@ -1,7 +1,9 @@
 require "../spec_helper"
 
 describe GPG::Key do
-  let(:gpg) { GPG.new }
+  let(:gpg) do
+    GPG.new.tap { |gpg| gpg.pinentry_mode = LibGPG::PinentryMode::Loopback }
+  end
 
   context "secret key" do
     subject(:key) { gpg.list_keys(secret_only: true).first }

@@ -8,7 +8,11 @@ describe GPG do
     end
   end
 
-  subject(:gpg) { described_class.new }
+  subject(:gpg) do
+    described_class.new.tap do |gpg|
+      gpg.pinentry_mode = LibGPG::PinentryMode::Loopback
+    end
+  end
 
   describe "#list_keys" do
     it "returns a key iterator" do
