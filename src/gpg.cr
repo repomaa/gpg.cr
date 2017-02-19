@@ -53,6 +53,7 @@ class GPG
   end
 
   def pinentry_mode=(mode)
-    LibGPG.set_pinentry_mode(@handle, mode)
+    gpg_error = LibGPG.set_pinentry_mode(@handle, mode)
+    Exception.raise_if_error(gpg_error)
   end
 end
