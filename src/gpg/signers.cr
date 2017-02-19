@@ -11,8 +11,8 @@ class GPG
     end
 
     def next
-      return stop if @index == size
       key_handle = LibGPG.signers_enum(@handle, @index)
+      return stop if key_handle.null?
       @index += 1
       Key.new(key_handle)
     end
@@ -25,10 +25,6 @@ class GPG
 
     def push(key)
       self << key
-    end
-
-    def size
-      LibGPG.signers_count(@handle)
     end
 
     def clear

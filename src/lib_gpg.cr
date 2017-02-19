@@ -222,7 +222,6 @@ lib LibGPG
     context : Context, cipher : Data, plain : Data
   ) : Error
 
-  fun signers_count = gpgme_signers_count(context : Context) : UInt32
   fun signers_enum = gpgme_signers_enum(context : Context, index : Int32) : Key*
   fun signers_add = gpgme_signers_add(context : Context, key : Key*) : Error
   fun signers_clear = gpgme_signers_clear(context : Context)
