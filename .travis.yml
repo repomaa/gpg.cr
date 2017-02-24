@@ -5,6 +5,7 @@ services:
 
 before_install:
   - docker build --tag crystal .
+  - docker run -v $PWD:/project -w /project crystal shards install
 
 script:
   - docker run -v $PWD:/project -w /project -e POPULATE_KEYRING=1 crystal crystal spec
