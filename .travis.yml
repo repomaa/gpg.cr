@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build --label crystal .
+  - docker build --tag crystal .
 
 script:
   - docker run -v .:/project -w /project -e POPULATE_KEYRING=1 crystal crystal spec
