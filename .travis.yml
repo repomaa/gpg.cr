@@ -1,12 +1,10 @@
-dist: trusty
 sudo: required
 
-language: crystal
-addons:
-  apt:
-    packages:
-      - gnupg
-      - libgpgme11-dev
+services:
+  - docker
 
-env:
-  POPULATE_KEYRING: 1
+before_install:
+  - docker build --label crystal .
+
+script:
+  - docker run -v .:/project -w /project -e POPULATE_KEYRING=1 crystal crystal spec
