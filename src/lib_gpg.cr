@@ -121,24 +121,9 @@ lib LibGPG
     _last_notation : SigNotation*
   end
 
-  @[Flags]
-  enum SubkeyFlags : UInt32
-    Revoked
-    Expired
-    Disabled
-    Invalid
-    CanEncrypt
-    CanSign
-    CanCertify
-    Secret
-    CanAuthenticate
-    IsQualified
-    IsCardkey
-  end
-
   struct Subkey
     next : Subkey*
-    flags : SubkeyFlags
+    info : UInt32
     pubkey_algo : PubkeyAlgo
     length : UInt32
     keyid : UInt8*
@@ -170,23 +155,9 @@ lib LibGPG
     tofu : TofuInfo
   end
 
-  @[Flags]
-  enum KeyFlags : UInt32
-    Revoked
-    Expired
-    Disabled
-    Invalid
-    CanEncrypt
-    CanSign
-    CanCertify
-    Secret
-    CanAuthenticate
-    IsQualified
-  end
-
   struct Key
     _refs : UInt32
-    flags : KeyFlags
+    info : UInt32
     protocol : Protocol
     issuer_serial : UInt8*
     issuer_name : UInt8*

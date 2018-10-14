@@ -19,7 +19,7 @@ class GPG
   end
 
   def list_keys(pattern = "", secret_only = false)
-    gpg_error = LibGPG.op_keyslist_start(@handle, pattern, secret_only.hash)
+    gpg_error = LibGPG.op_keyslist_start(@handle, pattern, secret_only ? 1 : 0)
     Exception.raise_if_error(gpg_error)
     KeyIterator.new(@handle)
   end

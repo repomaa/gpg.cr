@@ -26,9 +26,11 @@ class GPG
       SubkeyIterator.new(@handle)
     end
 
-    def flags
-      @handle.value.flags
-    end
+    {% for attribute, i in %i[revoked expired disabled invalid can_encrypt can_sign can_certify secret can_authenticate is_qualified] %}
+      def {{attribute.id}}?
+        ((@handle.value.info >> {{i}}) & 0x1) != 0
+      end
+    {% end %}
 
     def ==(other : Key)
       fingerprint == other.fingerprint

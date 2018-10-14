@@ -21,7 +21,7 @@ describe GPG do
 
     it "returns the correct amount of results" do
       count = gpg.list_keys.size
-      expect(count).to eq(3)
+      expect(count).to eq(2)
     end
 
     it "contains the correct keys" do

@@ -2,9 +2,7 @@ require "../lib_gpg"
 require "./exception"
 
 class GPG
-  class Data
-    include IO
-
+  class Data < IO
     @handle : LibGPG::Data
 
     def initialize
