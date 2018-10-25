@@ -16,7 +16,7 @@ class GPG
     @[AlwaysInline]
     def self.error_code(gpg_error)
       code = gpg_error.as(Int32) & LibGPG::ERROR_CODE_MASK.to_i
-      LibGPG::ErrorCode.from_value(code)
+      LibGPG::ErrorCode.from_value?(code)
     end
 
     def self.raise_from_errno
