@@ -4,5 +4,7 @@ stages:
 spec:
   stage: spec
   image: crystallang/crystal:latest
+  before_script:
+    - shards install
   script:
     - crystal spec
