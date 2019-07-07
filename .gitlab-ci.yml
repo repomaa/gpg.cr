@@ -3,8 +3,9 @@ stages:
 
 spec:
   stage: spec
-  image: crystallang/crystal:latest
+  image: jreinert/crystal-alpine:latest
   before_script:
+    - apk add gpgme-dev
     - shards install
   script:
-    - crystal spec
+    - crystal spec -Dmusl
