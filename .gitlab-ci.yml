@@ -7,5 +7,7 @@ spec:
   before_script:
     - apk add gpgme-dev
     - shards install
+  variables:
+    POPULATE_KEYRING: 'true'
   script:
     - crystal spec -Dmusl
