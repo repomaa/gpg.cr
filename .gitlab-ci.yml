@@ -1,0 +1,8 @@
+stages:
+  - spec
+
+spec:
+  stage: spec
+  image: crystallang/crystal:latest
+  script:
+    - crystal spec
