@@ -8,7 +8,7 @@ lib LibGPG
     CODE_DIM = 65536
   end
 
-  type Error = Int32
+  alias Error = Int32
 
   ERROR_CODE_MASK = ErrorCode::CODE_DIM - 1
 
