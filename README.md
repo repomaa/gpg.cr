@@ -1,6 +1,6 @@
 # gpg
 
-[![Build Status](https://travis-ci.org/jreinert/gpg.cr.svg?branch=master)](https://travis-ci.org/jreinert/gpg.cr)
+[![Build Status](https://travis-ci.org/repomaa/gpg.cr.svg?branch=master)](https://travis-ci.org/repomaa/gpg.cr)
 
 TODO: Write a description here
 
