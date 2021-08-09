@@ -29,7 +29,7 @@ class GPG
       @handle
     end
 
-    def write(slice)
+    def write(slice) : Nil
       bytes_written = LibGPG.data_write(@handle, slice, slice.size)
       Exception.raise_from_errno if bytes_written == -1
       bytes_written
